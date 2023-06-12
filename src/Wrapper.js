@@ -2,7 +2,7 @@ import './App.css';
 import Main from './Main'
 import Grid from '@mui/material/Grid';
 
-function App() {
+function Wrapper() {
   return (
     <Grid container>
       <Grid item sm={2} xs={0}></Grid>
@@ -12,4 +12,4 @@ function App() {
     </Grid>
   );
 }
-export default App;
+export default Wrapper;
