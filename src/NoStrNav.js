@@ -2,9 +2,10 @@ import React from 'react';
 import {
   Nav,
   NavItem,
+  NavLink as RRLink
   
 } from 'reactstrap';
-import {  Link, Outlet, NavLink } from "react-router-dom";
+import {  Link, NavLink } from "react-router-dom";
 
 function NoStrNav(props) {
   return (
@@ -12,14 +13,14 @@ function NoStrNav(props) {
       <Nav className='text-center m-8 p-4' justified pills>
  
   <NavItem>
-    <NavLink href="#" >
+    <NavLink tag={RRLink} to="/" >
       Posts
     </NavLink>
   </NavItem>
   <NavItem>
     <NavLink
       to="/Links"
-      
+      tag={RRLink}
     >
           Links
     </NavLink>
@@ -34,29 +35,28 @@ function NoStrNav(props) {
   </NavItem>
   <NavItem>
     <NavLink
-      href="#"
+      to="/Images"
      
     >
-     <Link to="/Images"> Images </Link>
-      
+      Images
     </NavLink>
   </NavItem>
   <NavItem>
     <NavLink
+    to="/Video"
     >
-     <Link to="/Video"> Video </Link>
+     Video
     </NavLink>
   </NavItem>
   <NavItem>
     <NavLink
       href="/Audio"
-
+      to="/Audio"
     >
-      <Link to="/Audio"> Audio </Link>
+      Audio
     </NavLink>
   </NavItem>
 </Nav>
-
     </div>
   );
 }

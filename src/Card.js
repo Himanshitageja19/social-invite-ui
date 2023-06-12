@@ -77,7 +77,6 @@ function Post(props) {
             <SpeedDialAction
               key={action.name}
               icon={action.icon}
-              tooltipTitle="45"
             >
             </SpeedDialAction>
           ))}

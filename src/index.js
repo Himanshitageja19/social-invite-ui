@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { BrowserRouter, Routes,Switch, Route,Outlet } from "react-router-dom";
+import { BrowserRouter, Routes,Switch, Route } from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.css';
 import Wrapper from './Wrapper';
@@ -23,18 +23,16 @@ export default function App() {
         </div>
         <div className='text-center mb-2 text-xl'>Learn what is trending <span className='text-purple-800'>today</span></div>
     <BrowserRouter>
-      <Routes>
-          <Route path="/" element={<Main filter="post"/>}>
-          <Route path="Video" element={<AppBar filter="video" />} />
-          <Route path="Hashtags" element={<Main filter="hashtag" />} />
-          <Route path="/Audio" element={<Main filter="audio" />} />
-          <Route path="/Images" element={<Main filter="image" />} />
-          <Route path="/Links" element={<Main filter="link" />} />
-          {/* <Route path="*" element={<NoPage />} /> */}
-        </Route>
-      </Routes>
+      <NoStrNav/>
+          <Route path="/" exact component={()=><Main filter="posts"/>}/>
+          <Switch>
+          <Route path="/Video" exact component={()=><Main filter="video"/>} />
+          <Route path="/Hashtags" exact component={()=><Main filter="hashtag"/>}/>
+          <Route path="/Audio" exact component={()=><Main filter="audio"/>}  />
+          <Route path="/Images" exact component={()=><Main filter="image"/>} />
+          <Route path="/Links" exact component={()=><Main filter="link"/>} />
+          </Switch>
     </BrowserRouter>
-    <Outlet/>
     </Grid>
     </Grid>
     
