@@ -11,12 +11,16 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.4.0",
+    "bootstrap": "^3.4.1",
     "html-react-parser": "^4.0.0",
     "nostr-tools": "^1.11.1",
     "react": "^18.2.0",
+    "react-bootstrap": "^2.7.4",
     "react-dom": "^18.2.0",
+    "react-icons": "^4.9.0",
     "react-infinite-scroller": "^1.2.6",
     "react-scripts": "5.0.1",
+    "reactstrap": "^9.2.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -33,9 +37,11 @@
   },
   "browserslist": {
     "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
+      "chrome >= 67",
+      "edge >= 79",
+      "firefox >= 68",
+      "opera >= 54",
+      "safari >= 14"
     ],
     "development": [
       "last 1 chrome version",
