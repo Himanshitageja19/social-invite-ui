@@ -2,9 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { BrowserRouter, Routes,Switch, Route } from "react-router-dom";
-import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.css';
-import Wrapper from './Wrapper';
 import Grid from '@mui/material/Grid';
 import Main from './Main';
 import  AppBar from './AppBar';
@@ -13,6 +11,7 @@ import NoStrNav from './NoStrNav';
 
 export default function App() {
   return (
+    <>
     <Grid container>
       <Grid item sm={2} xs={0}></Grid>
     <Grid item sm={8} xs={12} className="App">
@@ -35,6 +34,14 @@ export default function App() {
     </BrowserRouter>
     </Grid>
     </Grid>
+    <Grid container>
+      <Grid item sm={12} xs={12}>
+        <div className='w-full text-right text-xs'>
+            @version: 1.0.1
+        </div>
+      </Grid>
+    </Grid>
+    </>
     
   );
 }
