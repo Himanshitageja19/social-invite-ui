@@ -13,7 +13,7 @@ function NoStrNav(props) {
       <Nav className='text-center m-8 p-4' justified pills>
  
   <NavItem>
-    <NavLink tag={RRLink} to="/" >
+    <NavLink className="active" tag={RRLink} to="/" >
       Posts
     </NavLink>
   </NavItem>
@@ -28,7 +28,7 @@ function NoStrNav(props) {
   <NavItem>
     <NavLink
       to="/Hashtags"
-      
+      tag={RRLink}
     >
        HashTags 
     </NavLink>
@@ -36,7 +36,7 @@ function NoStrNav(props) {
   <NavItem>
     <NavLink
       to="/Images"
-     
+      tag={RRLink}
     >
       Images
     </NavLink>
@@ -44,13 +44,14 @@ function NoStrNav(props) {
   <NavItem>
     <NavLink
     to="/Video"
+    tag={RRLink}
     >
      Video
     </NavLink>
   </NavItem>
   <NavItem>
     <NavLink
-      href="/Audio"
+      tag={RRLink}
       to="/Audio"
     >
       Audio

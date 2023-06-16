@@ -13,8 +13,8 @@ export default function App() {
   return (
     <>
     <Grid container>
-      <Grid item sm={2} xs={0}></Grid>
-    <Grid item sm={8} xs={12} className="App">
+      <Grid item sm={2} xs={1}></Grid>
+    <Grid item sm={8} xs={10} className="App">
     <AppBar/>
         <Search/>
         <div className="text-center font-bold text-4xl mt-4 mb-2">
@@ -37,7 +37,7 @@ export default function App() {
     <Grid container>
       <Grid item sm={12} xs={12}>
         <div className='w-full text-right text-xs mt-16 '>
-           <span className='mr-4'> @version: 1.0.3 </span>
+           <span className='mr-4'> @version: 1.0.4 </span>
         </div>
       </Grid>
     </Grid>

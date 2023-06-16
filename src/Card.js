@@ -82,14 +82,6 @@ function Post(props) {
           ))}
         </StyledSpeedDial>
         </Badge>
-            {/* <MdOutlineAddReaction className="inline-block mr-1"/>
-            <span className="inline-block text-sm mr-2">10K</span>
-            <BsChat className="inline-block mr-1"></BsChat> 
-            <span className="inline-block text-sm mr-2">36</span>
-            <AiOutlineRetweet className="inline-block mr-1"></AiOutlineRetweet> 
-            <span className="inline-block text-sm mr-2">87</span>
-            <AiOutlineLike className="inline-block mr-1"></AiOutlineLike> 
-            <span className="inline-block text-sm">101</span> */}
             <small className="text-muted ml-4">
              {new Date(Number(props.created_at)*1000).toTimeString()} 
           </small>
