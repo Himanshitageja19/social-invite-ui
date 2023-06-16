@@ -36,8 +36,8 @@ export default function App() {
     </Grid>
     <Grid container>
       <Grid item sm={12} xs={12}>
-        <div className='w-full text-right text-xs'>
-            @version: 1.0.2
+        <div className='w-full text-right text-xs mt-16 '>
+           <span className='mr-4'> @version: 1.0.3 </span>
         </div>
       </Grid>
     </Grid>
