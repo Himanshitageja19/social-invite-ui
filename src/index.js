@@ -37,7 +37,7 @@ export default function App() {
     <Grid container>
       <Grid item sm={12} xs={12}>
         <div className='w-full text-right text-xs'>
-            @version: 1.0.1
+            @version: 1.0.2
         </div>
       </Grid>
     </Grid>
