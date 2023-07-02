@@ -1,9 +1,10 @@
 import './App.css';
 import Card from './Card'
-import NoStrNav from './NoStrNav';
 import React, { useState, useEffect } from "react";
 import Axios from 'axios'
-function Main(props) {
+import {forwardRef, useImperativeHandle} from 'react';
+
+const Main = forwardRef((props, ref) => {
  const [events,setEvents] = useState([]);
  const [enterTime,setEnterTime] = useState(getStartTime())
  const [endTime,setEndTime] = useState(getEndTime())
@@ -44,6 +45,20 @@ async function getPosts(time=enterTime, relayName='wss://relay.nostr.band') {
     }
 }
 
+async function searchQuery(query) {
+    setGetPostsStatus('Searching...')
+    setEvents([])
+    try {
+        console.log('loading start')
+        const {data} = await Axios.get(`https://api.postre.io/notes/search?query=${query}&page=${sinceCount}&size=${size}&start_time=${enterTime}&end_time=${endTime}&filter=${props.filter}`)
+        console.log(data)
+        setEvents([...data.content])
+        if(data.content.length === 0) setGetPostsStatus('No Posts Found!')
+    } catch(err) {
+        setGetPostsStatus('Some error occured while getting posts.Please try reloading page!')
+    }
+}
+
 async function loadMore() {
     setLoadingText('Loading...')
     await setSinceCount(Number(sinceCount)+1||1);
@@ -56,6 +71,11 @@ async function loadMore() {
         setLoadingText('Error! Click Again')
     }
 }
+
+useImperativeHandle(ref, () => ({
+    searchQuery
+}));
+
 
 return (
     <div>
@@ -81,6 +101,6 @@ return (
     </div>
 )
 
-}
+})
 
 export default Main;
