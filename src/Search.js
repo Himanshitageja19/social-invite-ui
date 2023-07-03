@@ -15,12 +15,10 @@ export default function Search (props) {
     
     const handleInput= (event) => {
       setQuery(event.target.value)
-      console.log('input', query)
     }
 
     const handleSubmit = () => {
-      console.log('query', query);
-      props.handleSearch(query);
+      props.handleSearch(encodeURIComponent(query));
     }
 
    return  (
