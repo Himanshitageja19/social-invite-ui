@@ -12,6 +12,10 @@ const Main = forwardRef((props, ref) => {
  const [size,setSize] = useState(100)
  const [loadingText,setLoadingText] = useState('Load More')
  const [getPostsStatus, setGetPostsStatus] = useState('Loading Posts...')
+ const [searchQueryString,setSearchQueryString] = useState('')
+ const [searchCount,setSearchCount] = useState(1)
+
+ 
 
 
  useEffect(() => {
@@ -40,6 +44,8 @@ async function getPosts(time=enterTime, relayName='wss://relay.nostr.band') {
         const {data} =await Axios.get(`https://api.postre.io/notes?page=0&size=${size}&start_time=${enterTime}&end_time=${endTime}&filter=${props.filter}`)
         console.log(data)
          setEvents([...data.content])
+         if(events.length===0) 
+            setGetPostsStatus('No Posts Today!')
     } catch(err) {
         setGetPostsStatus('Some error occured while getting posts.Please try reloading page!')
     }
@@ -47,10 +53,13 @@ async function getPosts(time=enterTime, relayName='wss://relay.nostr.band') {
 
 async function searchQuery(query) {
     setGetPostsStatus('Searching...')
+    await setSearchCount(1);
+    await setSinceCount(1);
+    setSearchQueryString(query)
     setEvents([])
     try {
         console.log('loading start')
-        const {data} = await Axios.get(`https://api.postre.io/notes/search?query=${query}&page=${sinceCount}&size=${size}&start_time=${enterTime}&end_time=${endTime}&filter=${props.filter}`)
+        const {data} = await Axios.get(`https://api.postre.io/notes/search?query=${query}&page=0&size=${size}&start_time=${enterTime}&end_time=${endTime}&filter=${props.filter}`)
         console.log(data)
         setEvents([...data.content])
         if(data.content.length === 0) setGetPostsStatus('No Posts Found!')
@@ -61,9 +70,17 @@ async function searchQuery(query) {
 
 async function loadMore() {
     setLoadingText('Loading...')
-    await setSinceCount(Number(sinceCount)+1||1);
     try {
-        const {data} =await Axios.get(`https://api.postre.io/notes?page=${sinceCount}&size=${size}&start_time=${enterTime}&end_time=${endTime}&filter=${props.filter}`)
+        let response;
+        if(searchQueryString.length>0) {
+            await setSearchCount(Number(searchCount)+1||1);
+            response = await Axios.get(`https://api.postre.io/notes/search?query=${searchQueryString}&page=${searchCount}&size=${size}&start_time=${enterTime}&end_time=${endTime}&filter=${props.filter}`)
+        }
+        else {
+            await setSinceCount(Number(sinceCount)+1||1);
+            response =await Axios.get(`https://api.postre.io/notes?page=${sinceCount}&size=${size}&start_time=${enterTime}&end_time=${endTime}&filter=${props.filter}`)
+        }
+        const data = response.data;
         console.log(data)
         setEvents([...events,...data.content])
         setLoadingText('Load More')
