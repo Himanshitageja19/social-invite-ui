@@ -1,4 +1,4 @@
-import { Card, CardBody, CardText,CardImg, CardTitle, Button  } from "reactstrap";
+import { Card, CardBody, CardText,CardImg, CardTitle, Button,UncontrolledCarousel  } from "reactstrap";
 import {BsFillKeyFill, BsLightning, BsChat} from "react-icons/bs"
 import {AiOutlineLike,AiOutlineRetweet} from "react-icons/ai"
 import {MdOutlineAddReaction} from "react-icons/md"
@@ -37,6 +37,18 @@ function Post(props) {
         return repl.replace(replacePattern1,'<a href="$1" target="_blank">$1</a>');
     }
 
+    function getImageUrls(text) {
+        const regex = /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|svg|jpeg|png)/g;
+        const images = text.match(regex) || [];
+        console.log("images",images)
+        return images.map((image,index)=> {
+            return {
+                key: index,
+                src: image
+            }
+        })
+    }
+
   return (<>
     <Card className="border-white text-left" >
       <CardBody>
@@ -56,6 +68,16 @@ function Post(props) {
         <CardText>
           {parser(contentParser(props.content))}
         </CardText>
+        {getImageUrls(props.content).length?<CardText style={{display: "flex", justifyContent: "center"}}>
+            <UncontrolledCarousel
+                items={getImageUrls(props.content)}
+                style={{
+                    width: 400,
+                    height: 250,
+                    overflow: "hidden"
+                }}
+            />
+        </CardText>:""}
         <CardText>
         <Badge 
             anchorOrigin={{
@@ -82,7 +104,7 @@ function Post(props) {
           ))}
         </StyledSpeedDial>
         </Badge>
-            <small className="text-muted ml-4">
+            <small className="text-muted float-right ml-4">
              {new Date(Number(props.created_at)*1000).toTimeString()} 
           </small>
         </CardText>

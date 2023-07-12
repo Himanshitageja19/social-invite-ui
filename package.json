@@ -1,6 +1,6 @@
 {
   "name": "my-app",
-  "version": "1.0.9",
+  "version": "1.0.alpha1",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.11.0",

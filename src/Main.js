@@ -15,9 +15,6 @@ const Main = forwardRef((props, ref) => {
  const [searchQueryString,setSearchQueryString] = useState('')
  const [searchCount,setSearchCount] = useState(1)
 
- 
-
-
  useEffect(() => {
     setEnterTime(getStartTime())
     setEndTime(getEndTime())
