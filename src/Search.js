@@ -24,7 +24,7 @@ export default function Search (props) {
    return  (
     <div className="my-12">
     <InputGroup>
-    <Input value={query} onChange={handleInput} placeholder="Keyword, hashtag, pubkey or post ID"/>
+    <Input value={query} onKeyDown={(e)=> {if(e.key === 'Enter') handleSubmit()}} onChange={handleInput} placeholder="Keyword, hashtag, pubkey or post ID"/>
     <InputGroupText  onClick={()=>{ handleSubmit()}}  className="cursor-pointer hover:bg-gray-100">
         <BsSearch/>
     </InputGroupText>

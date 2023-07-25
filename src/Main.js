@@ -9,7 +9,7 @@ const Main = forwardRef((props, ref) => {
  const [enterTime,setEnterTime] = useState(getStartTime())
  const [endTime,setEndTime] = useState(getEndTime())
  const [sinceCount,setSinceCount] = useState(1)
- const [size,setSize] = useState(100)
+ const [size,setSize] = useState(50)
  const [loadingText,setLoadingText] = useState('Load More')
  const [getPostsStatus, setGetPostsStatus] = useState('Loading Posts...')
  const [searchQueryString,setSearchQueryString] = useState('')
