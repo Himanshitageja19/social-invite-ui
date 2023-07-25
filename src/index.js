@@ -51,10 +51,10 @@ export default function App() {
     <Grid item sm={8} xs={10} className="App">
     <AppBar/>
         <Search handleSearch={handleSearch}/>
-        <div className="text-center font-bold text-4xl mt-4 mb-2">
+        {/* <div className="text-center font-bold text-4xl mt-4 mb-2">
             Discover <span className='text-purple-800'>Nostr</span>
         </div>
-        <div className='text-center mb-2 text-xl'>Learn what is trending <span className='text-purple-800'>today</span></div>
+        <div className='text-center mb-2 text-xl'>Learn what is trending <span className='text-purple-800'>today</span></div> */}
     <BrowserRouter>
       <NoStrNav/>
           <Route path="/" exact component={()=><Main ref={postRef} filter="posts"/>}/>

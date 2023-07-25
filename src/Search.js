@@ -28,7 +28,7 @@ export default function Search (props) {
     <InputGroupText  onClick={()=>{ handleSubmit()}}  className="cursor-pointer hover:bg-gray-100">
         <BsSearch/>
     </InputGroupText>
-    <InputGroupText className="m-0 p-0">
+    {/* <InputGroupText className="m-0 p-0">
     <Button className="m-0 p-0 hover:bg-gray-500">
     <Select
     labelId="demo-simple-select-label"
@@ -42,7 +42,7 @@ export default function Search (props) {
     <MenuItem value={3}>Hashtags</MenuItem>
   </Select>
     </Button>
-    </InputGroupText>
+    </InputGroupText> */}
   </InputGroup>
     </div>
    
