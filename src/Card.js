@@ -63,7 +63,7 @@ function Post(props) {
       }}
       top
     />
-          <BsFillKeyFill className="inline-block"/> <span className="inline-block cursor-pointer">{props.pubkey}</span>
+        <BsFillKeyFill className="inline-block"/> <span className="inline-block inline cursor-pointer" style={{"word-break": "break-all"}}>{props.pubkey}</span>
         </CardTitle>
         <CardText>
           {parser(contentParser(props.content))}

@@ -39,7 +39,7 @@ function ResponsiveAppBar(props) {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters style={{display: "flex", justifyContent: "center"}}>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <AdbIcon sx={{ display: { xs: 'flex', md: 'flex' }, mr: 1 }} />
           <Typography
             variant="h6"
             noWrap
@@ -47,7 +47,7 @@ function ResponsiveAppBar(props) {
             href="/"
             sx={{
               mr: 2,
-              display: { xs: 'none', md: 'flex' },
+              display: { xs: 'flex', md: 'flex' },
               fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.3rem',

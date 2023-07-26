@@ -10,7 +10,7 @@ import {  Link, NavLink } from "react-router-dom";
 function NoStrNav(props) {
   return (
     <div >
-      <Nav className='text-center m-8 p-4' justified pills>
+      <Nav className='text-center py-4 px-2' style={{display: 'flex', justifyContent: 'space-between'}} pills>
  
   <NavItem>
     <NavLink className="active" tag={RRLink} to="/" >
